@@ -3,7 +3,7 @@ Summary:	GTK-Webcore Core library
 Name:		osb-nrcit
 Version:	0.5.0
 Release:	0.1
-License:	GPL?
+License:	GPL
 Group:		Development/Libraries
 Source0:	http://dl.sourceforge.net/gtk-webcore/%{name}-%{version}.tar.gz
 # Source0-md5:	b02f4a0dcaac722ad7cdc112db964df4
@@ -38,15 +38,6 @@ Static osb-nrcit library.
 %patch0 -p1 
 
 %build
-# if ac/am/* rebuilding is necessary, do it in this order and add
-# appropriate BuildRequires
-#%%{__gettextize}
-#%%{__libtoolize}
-#%%{__aclocal}
-#%%{__autoconf}
-#%%{__autoheader}
-#%%{__automake}
-#cp -f /usr/share/automake/config.sub .
 %configure
 %{__make}
 
