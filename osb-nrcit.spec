@@ -1,37 +1,56 @@
-#
-Summary:	GTK-Webcore Core library
+Summary:	OSB HTML Rendering engine library
+Summary(pl):	Biblioteka OSB silnika renderuj±cego HTML
 Name:		osb-nrcit
 Version:	0.5.0
 Release:	0.1
-License:	GPL
-Group:		Development/Libraries
+License:	BSD
+Group:		Libraries
 Source0:	http://dl.sourceforge.net/gtk-webcore/%{name}-%{version}.tar.gz
 # Source0-md5:	b02f4a0dcaac722ad7cdc112db964df4
-Patch0:	%{name}-const.patch
+Patch0:		%{name}-const.patch
 URL:		http://gtk-webcore.sourceforge.net/
+BuildRequires:	curl-devel
+BuildRequires:	gtk+2-devel >= 2:2.2.0
+BuildRequires:	libxml2-devel >= 1:2.6.0
 BuildRequires:	osb-jscore-devel
 BuildRequires:	osb-nrcore-devel
+BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-GTK Webcore Core library
+OSB HTML Rendering engine library.
+
+%description -l pl
+Biblioteka OSB silnika renderuj±cego HTML.
 
 %package devel
-Summary:	Development libraries and header files for osb-nrcit library
+Summary:	Header files for osb-nrcit library
+Summary(pl):	Pliki nag³ówkowe biblioteki osb-nrcit
 Group:		Development/Libraries
-#Requires:	%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
+Requires:	curl-devel
+Requires:	gtk+2-devel >= 2:2.2.0
+Requires:	libxml2-devel >= 1:2.6.0
+Requires:	osb-jscore-devel
+Requires:	osb-nrcore-devel
 
 %description devel
-This is the package containing the development libraries and header
-files for osb-nrcit.
+This is the package containing the header files for osb-nrcit.
+
+%description devel -l pl
+Ten pakiet zawiera pliki nag³ówkowe biblioteki osb-nrcit.
 
 %package static
 Summary:	Static osb-nrcit library
+Summary(pl):	Statyczna biblioteka osb-nrcit
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static osb-nrcit library.
+
+%description static -l pl
+Statyczna biblioteka osb-nrcit.
 
 %prep
 %setup -q
@@ -59,10 +78,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libnrcit.so.0.0.0
 
 %files devel
-%{_includedir}/osb/*.h
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/libnrcit.so
 %{_libdir}/libnrcit.la
-%{_libdir}/libnrcit.so
-%{_libdir}/pkgconfig/osb-nrcit.pc
+%{_includedir}/osb/*.h
+%{_pkgconfigdir}/osb-nrcit.pc
 
 %files static
+%defattr(644,root,root,755)
 %{_libdir}/libnrcit.a
