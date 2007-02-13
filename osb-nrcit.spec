@@ -1,5 +1,5 @@
 Summary:	OSB HTML Rendering engine library
-Summary(pl.UTF-8):   Biblioteka OSB silnika renderującego HTML
+Summary(pl.UTF-8):	Biblioteka OSB silnika renderującego HTML
 Name:		osb-nrcit
 Version:	0.5.0
 Release:	0.1
@@ -25,7 +25,7 @@ Biblioteka OSB silnika renderującego HTML.
 
 %package devel
 Summary:	Header files for osb-nrcit library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki osb-nrcit
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki osb-nrcit
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	curl-devel
@@ -42,7 +42,7 @@ Ten pakiet zawiera pliki nagłówkowe biblioteki osb-nrcit.
 
 %package static
 Summary:	Static osb-nrcit library
-Summary(pl.UTF-8):   Statyczna biblioteka osb-nrcit
+Summary(pl.UTF-8):	Statyczna biblioteka osb-nrcit
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
