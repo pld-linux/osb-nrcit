@@ -1,0 +1,25 @@
+diff -ur osb-nrcit-0.5.2-o/src/BridgeImpl.cpp osb-nrcit-0.5.2/src/BridgeImpl.cpp
+--- osb-nrcit-0.5.2-o/src/BridgeImpl.cpp	2007-03-06 07:16:55.000000000 -0700
++++ osb-nrcit-0.5.2/src/BridgeImpl.cpp	2007-06-04 21:41:47.000000000 -0600
+@@ -415,7 +415,7 @@
+ 
+ const gchar* BridgeImpl::generateFrameName()
+ {
+-    static gchar* templ = "<!-- frame: %d-->";
++    static const gchar* templ = "<!-- frame: %d-->";
+     // doesn't this leak one duplicated string?
+     if (m_generatedFrameName) g_free(m_generatedFrameName);
+     m_generatedFrameName = g_strdup_printf(templ, m_generatedFrameNameId);
+diff -ur osb-nrcit-0.5.2-o/src/HttpCurl.cpp osb-nrcit-0.5.2/src/HttpCurl.cpp
+--- osb-nrcit-0.5.2-o/src/HttpCurl.cpp	2007-03-06 07:16:55.000000000 -0700
++++ osb-nrcit-0.5.2/src/HttpCurl.cpp	2007-06-04 21:43:11.000000000 -0600
+@@ -584,7 +584,7 @@
+ {
+     HttpHeader *hdr = parseHeader(data, len);
+     if (hdr) {
+-		if (hdr->key() == HTTP_WWW_AUTHENTICATE && hdr->value())
++		if (strcmp(hdr->key(), HTTP_WWW_AUTHENTICATE) && hdr->value())
+ 		{
+ 			const gchar * value = hdr->value();
+ 			char * realm = g_strrstr(value, "realm=" );
+Only in osb-nrcit-0.5.2/src: HttpCurl.cpp~
