@@ -1,19 +1,19 @@
 Summary:	OSB HTML Rendering engine library
 Summary(pl.UTF-8):	Biblioteka OSB silnika renderującego HTML
 Name:		osb-nrcit
-Version:	0.5.0
+Version:	0.5.2
 Release:	0.1
 License:	BSD
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/gtk-webcore/%{name}-%{version}.tar.gz
-# Source0-md5:	b02f4a0dcaac722ad7cdc112db964df4
-Patch0:		%{name}-const.patch
+# Source0-md5:	a1d2af774012a161a9a8ffe0cd3c81c5
+Patch0:	%{name}-constchar.patch
 URL:		http://gtk-webcore.sourceforge.net/
 BuildRequires:	curl-devel
 BuildRequires:	gtk+2-devel >= 2:2.2.0
 BuildRequires:	libxml2-devel >= 1:2.6.0
-BuildRequires:	osb-jscore-devel
-BuildRequires:	osb-nrcore-devel
+BuildRequires:	osb-jscore-devel >= 0.5.2
+BuildRequires:	osb-nrcore-devel >= 0.5.2
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -54,7 +54,7 @@ Statyczna biblioteka osb-nrcit.
 
 %prep
 %setup -q
-%patch0 -p1 
+%patch0 -p1
 
 %build
 %configure
